@@ -1,17 +1,17 @@
 import React from 'react';
 import '../auth.form.scss';
 import { Link } from 'react-router';
-import { useAuth } from '../auth.context.jsx';
+import {useAuth as useAuthHook} from '../hooks/useAuth.jsx'
 
 function Login() {
-    const { loading, handleLogin } = useAuth();
+    const { loading, handleLogin } = useAuthHook();
 
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await handleLogin(email, password);
+        handleLogin(email, password);
     };
 
     if (loading) {
