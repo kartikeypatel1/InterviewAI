@@ -82,21 +82,21 @@ async function registerUserController(req, res) {
  */
 async function loginUserController(req, res) {
     try {
-        const { name, password } = req.body;
+        const { email, password } = req.body;
 
         // Validate required fields
-        if (!name || !password) {
+        if (!email || !password) {
             return res.status(400).json({
-                message: 'Please provide all the required fields'
+                message: 'Please provide email and password'
             });
         }
 
-        // Find user
-        const user = await userModel.findOne({ name });
+        // Find user by email
+        const user = await userModel.findOne({ email });
 
         if (!user) {
             return res.status(400).json({
-                message: 'Invalid name or password'
+                message: 'Invalid email or password'
             });
         }
 
@@ -108,7 +108,7 @@ async function loginUserController(req, res) {
 
         if (!isPasswordValid) {
             return res.status(400).json({
-                message: 'Invalid name or password'
+                message: 'Invalid email or password'
             });
         }
 

@@ -3,30 +3,43 @@ const api = axios.create({
     baseURL: 'http://localhost:3000',
     withCredentials: true
 })
-export async function register({username, email, password}) {
+export async function register({ username, email, password }) {
     try {
         const response = await api.post('/api/auth/register', {
-            username,
+            name: username,
             email,
             password
         });
+
         return response.data;
+
     } catch (error) {
-        console.log(error);
+        console.error(
+            "Register API Error:",
+            error.response?.data || error.message
+        );
+
+        throw error;
     }
 }
 
-export async function login({email, password}) {
+export async function login({ email, password }) {
     try {
         const response = await api.post('/api/auth/login', {
             email,
             password
         });
+
         return response.data;
+
+    } catch (error) {
+        console.error(
+            "Login API Error:",
+            error.response?.data || error.message
+        );
+
+        throw error;
     }
-    catch (error) {
-        console.log(error);
-    }   
 }
 
 
