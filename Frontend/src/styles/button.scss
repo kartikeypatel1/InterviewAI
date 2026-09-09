@@ -1,4 +1,5 @@
-button{
+.button{
+
     border: none;
     outline: none;
     padding-inline: 1.5rem;
@@ -7,13 +8,13 @@ button{
     cursor: pointer;
 
     transition: all 0.3s ease-in-out;
+
     &.primary-button{
-        background-color: #f03737;
-        color: #ede9e9;
+        background-color: var(--accent);
+        color: var(--btn-text);
     }
+
     &:active{
         transform: scale(0.9);
     }
-
-
 }

@@ -1,39 +1,32 @@
-
-
 main{
     min-height: 100vh;
     width: 100%;
+
     display: flex;
     justify-content: center;
     align-items: center;
 
+
     .form-container{
-        width: 100%;
-        max-width: 30rem;
-        padding: 2rem;
-        border-radius: 1rem;
-        background-color: #333333;
+        min-width: 350px;
+
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
-
-        h1{
-            text-align: center;
-            font-size: 2rem;
-            font-weight: 600;
-        }
+        gap: 1rem;
     }
+
     form{
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 0.75rem;
     }
+
     .input-group{
         display: flex;
         flex-direction: column;
 
-        gap:0.75rem;
-         
+        gap: 0.5rem;
+
 
         input{
             border: none;
@@ -41,15 +34,11 @@ main{
             padding-inline: 1rem;
             padding-block: 0.75rem;
             border-radius: 0.75rem;
-            border: 1px solid #ffffff;
-            background-color: #222222;
-            color: #ffffff;
         }
     }
+
     a{
+        color: var(--accent);
         text-decoration: none;
-        color: #f03737;
-        font-weight: 600;
-        text-align: center;
     }
 }
