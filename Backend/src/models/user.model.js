@@ -1,22 +1,25 @@
-const mongoose=require('mongoose');
-const dotenv=require('dotenv');
-dotenv.config();
+const mongoose = require("mongoose")
 
-const userSchema=new mongoose.Schema({
-    name:{
-        type:String,
-        unique:[true, 'Name must be unique'],
-        required:true
+
+const userSchema = new mongoose.Schema({
+    username: {
+        type: String,
+        unique: [ true, "username already taken" ],
+        required: true,
     },
-    email:{
-        type:String,
-        required:true,
-        unique:[true, 'Account with this email already exists'],
+
+    email: {
+        type: String,
+        unique: [ true, "Account already exists with this email address" ],
+        required: true,
     },
-    password:{
-        type:String,
-        required:true
+
+    password: {
+        type: String,
+        required: true
     }
-});
+})
 
-module.exports=mongoose.model('Users', userSchema);
+const userModel = mongoose.model("users", userSchema)
+
+module.exports = userModel
